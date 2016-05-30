@@ -1,1 +1,68 @@
-<p>This is the register view.</p>
+<h1>Register</h1>
+<h4>Create an account and get started today.</h4>
+<style>
+    .registerContainer{
+        background-color: rgb(250, 250, 250);
+        padding: 20px;
+    }
+    
+    .registerFormContainer{
+        background-color: rgb(242, 242, 242);
+        padding: 20px;
+    }
+</style>
+
+<div class="row registerContainer">
+    <div class="col-md-8 registerFormContainer">
+
+        <form>
+            <div class="form-group">
+                <label for="txtForname">Forname*</label>
+                <input ng-model="registration.forname" ng-maxlength="100" class="form-control" type="text"  id="txtForname" required placeholder="Forname">
+            </div>
+            <div class="form-group">
+                <label for="txtForname">Surname*</label>
+                <input ng-model="registration.surname" ng-maxlength="100" class="form-control" type="text"  id="txtSurname" required placeholder="Surname">
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4">
+                    <label for="txtSex">Sex*</label>
+                    <select ng-model="registration.sex" id="txtSex" required class="form-control">
+                        <option>Please select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div class="col-sm-8">
+                    <label for="txtBirthdate">Date of birth*</label>
+                    <input ng-model="registration.birthdate" id="txtBirthdate" required type="date" class="form-control" placeholder="Date of birth">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtEmail">Email Address*</label>
+                <input ng-model="registration.email" ng-maxlength="100" class="form-control" type="email"  id="txtEmail" required placeholder="Email address">
+            </div>
+            
+            <div class="form-group">
+                <label for="txtEmailConfirm">Verify Email Address*</label>
+                <input ng-model="registration.emailConfirm" ng-match ng-maxlength="100" class="form-control" type="email"  id="txtEmailConfirm" required placeholder="Verify email address">
+            </div>
+            
+            
+            <div class="form-group-inline">
+                <label for="txtUsername">Password</label>
+                <input ng-model="registration.password" ng-minlength="7" ng-maxlength="25" class="form-control" type="password"  id="txtPassword" required placeholder="Password">
+                <input ng-model="registration.showPassword" type="checkbox" placeholder="Show">
+            </div>
+
+            <button type="button" ng-click="login(credentials)" class="btn btn-default pull-right">Login</button>
+        </form>
+
+    </div>
+    
+    <div class="col-md-4 text-center">
+        <p><b>Already a member?</b></p>
+        <a class="btn btn-default" href="#/login">Login</a>
+    </div>
+</div>
+

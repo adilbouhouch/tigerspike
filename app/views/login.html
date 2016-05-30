@@ -1,1 +1,39 @@
-<p>This is the login view.</p>
+<h1>Login</h1>
+<h4>Access your account</h4>
+<style>
+    .loginContainer{
+        background-color: rgb(250, 250, 250);
+        padding: 20px;
+    }
+    
+    .loginFormContainer{
+        background-color: rgb(242, 242, 242);
+        padding: 20px;
+    }
+</style>
+
+<div class="row loginContainer">
+    <div class="col-md-8 loginFormContainer">
+
+        <form>
+            <div class="form-group">
+                <label for="txtUsername">Username</label>
+                <input ng-model="credentials.username" ng-maxlength="100" class="form-control" type="text"  id="txtUsername" required placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label for="txtUsername">Password</label>
+                <input ng-model="credentials.password" ng-minlength="7" ng-maxlength="25" class="form-control" type="password"  id="txtPassword" required placeholder="Password">
+                <a class="link" href="#">Forgot password?</a>
+            </div>
+
+            <button type="button" ng-click="login(credentials)" class="btn btn-default pull-right">Login</button>
+        </form>
+
+    </div>
+    
+    <div class="col-md-4 text-center">
+        <p><b>Not a member?</b></p>
+        <a class="btn btn-default" href="#/register">Register today</a>
+    </div>
+</div>
+
