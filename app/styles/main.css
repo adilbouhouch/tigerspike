@@ -10,12 +10,13 @@
 .grey2{
     background-color: rgb(115, 114, 114);
 }
-.grey3{
-    background-color: lightgrey;
-}
 
 * {
   border-radius: 0 !important;
+}
+
+.container {
+    max-width: 320px;
 }
 
 html,
@@ -62,10 +63,9 @@ body {
     background-color: white;
     min-height: 100%;
     height: auto !important;
-    height: 100%;
     padding: 30px;
     /* Negative indent footer by it's height */
-    margin: 0 auto -110px;
+    margin: 0 auto;
 }
 
 /* Custom page footer */

@@ -8,7 +8,7 @@
  * Controller of the tigerspikeApp
  */
 angular.module('tigerspikeApp')
-  .controller('LoginCtrl', function ($scope, $rootScope, AuthService) {
+  .controller('LoginCtrl', function ($scope, $rootScope, AuthService, $location) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -20,12 +20,18 @@ angular.module('tigerspikeApp')
         password: ''
     };
     
+    $scope.errorMessage = '';
+    
     $scope.login = function (credentials) {
-        AuthService.login(credentials).then(function (user) {
-            $rootScope.$broadcast('success');
-            $scope.setCurrentUser(user);
-        }, function () {
-            $rootScope.$broadcast('failed');
-        });
+        if ($scope.loginForm.$valid) {
+            var result = AuthService.login(credentials)
+            if(result == "success") {
+                $scope.errorMessage = '';
+                $location.path( "/main" );
+            }else {
+                $scope.errorMessage = 'invalid username and password combination.';
+            }            
+        }
+
     };
   });
